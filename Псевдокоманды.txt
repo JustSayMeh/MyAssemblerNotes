@@ -1,0 +1,48 @@
+db объявляет числовые константы и строки
+
+db 0x55
+db 0x55, 0x56, 0x57
+db 'a', 0x55
+db 'Hello', 13, 10, 's'
+
+Аналогично dw, dd
+dw 'a'
+dd 1.23456e10
+
+Переменная: 
+number dd 0x1
+number - адрес в памяти. 0x1 значение ячейки по адресу
+
+
+
+
+RESB RESW RESD
+
+RESB 1
+RESB 2
+number resb 1
+buffer resb 64
+
+
+TIMES n; Повторит следующую команду n раз
+
+hello: times 64 db 'HEllo'
+times 5 inc eax
+
+
+INCBIN - подклчение двоичного файла
+incbin "sound.wav"
+incbin "sound.wav" 512; пропустить первые 512 байт
+incbin "dsf", 512, 80
+
+
+EQU - вычисление константных выражений
+four EQU 4; 
+
+
+
+SEG - смена сегмента
+С помощью оператора SEG в сегментный регистр может быть загружен адрес
+сегмента, где физически расположена переменная
+mov ax, seg count
+
